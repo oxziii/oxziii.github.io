@@ -1,0 +1,78 @@
+<html>
+<head>
+  <meta http-equiv="Content-type" content="text/html; charset=ISO-8859-2" />  
+  <title>[ Tytul dokumentu ]</title>
+</head>
+<body>
+<script language="JavaScript">
+
+function dodawanie() {
+var skl1=parseFloat(document.forms[0].elements[0].value);
+var skl2=parseFloat(document.forms[0].elements[1].value);
+var wynik = skl1+skl2;
+alert(wynik);
+}
+function odejmowanie() {
+/* Odwołanie do formularza i jego elementów przez indeks
+Formularz o nazwie jakas_wymyslona_nazwa1 jest drugim formularzem w dokumencie więc ma indeks równy 1
+Pole tekstowe o nazwie jakas_wymyslona_nazwa2 jest pierwszym elementem formularza więc ma indeks równy 0
+*/
+var skl1=parseFloat(document.forms[0].elements[0].value);
+var skl2=parseFloat(document.forms[0].elements[1].value);
+var wynik = skl1-skl2;
+alert(wynik);
+}
+function Mnozenie() {
+var skl1=parseFloat(document.forms[0].elements[0].value);
+var skl2=parseFloat(document.forms[0].elements[1].value);
+var wynik = skl1*skl2;
+alert(wynik);
+
+}
+function dzielenie() {
+if(document.forms[0].elements[1].value!=0){
+
+var skl1=parseFloat(document.forms[0].elements[0].value);
+var skl2=parseFloat(document.forms[0].elements[1].value);
+var wynik = skl1/skl2;
+}
+else {
+wynik=0;}
+alert(wynik);
+}
+</script>
+
+<form name="Form1">
+a=<input type="Text" name="a"><br>
+b=<input type="Text" name="b"><br>
+<input type="Button" value="Oblicz sume" onclick="dodawanie()">
+<input type="Button" value="Oblicz roznice" onclick="odejmowanie()">
+<input type="Button" value="Oblicz Iloczyn" onclick="Mnozenie()">
+<input type="Button" value="Oblicz Iloraz" onclick="dzielenie()">
+</form>
+<hr>
+
+
+
+<form name="jakas_wymyslona_nazwa1">
+x=<input type="Text" name="jakas_wymyslona_nazwa2"><br>
+y=<input type="Text" name="jakas_wymyslona_nazwa3"><br>
+<input type="Button" value="Oblicz roznice" onclick="odejmowanie()">
+</form>
+<hr>
+
+<form name="Form2">
+a=<input type="Text" name="c"><br>
+b=<input type="Text" name="d"><br>
+<input type="Button" value="Oblicz Iloczyn" onclick="Mnozenie()">
+</form>
+<hr>
+<form name="Form3">
+a=<input type="Text" name="e"><br>
+b=<input type="Text" name="f"><br>
+<input type="Button" value="Oblicz Iloraz" onclick="dzielenie()">
+</form>
+<hr>
+
+</body>
+</html>
