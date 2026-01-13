@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Kalkulator BMI</title>
+</head>
+<body>
+
+<h2>Kalkulator BMI</h2>
+
+<form onsubmit="obliczBMI(); return false;">
+    <label>
+        Wzrost (cm):
+        <input type="number" id="wzrost" required>
+    </label>
+    <br><br>
+
+    <label>
+        Waga (kg):
+        <input type="number" id="waga" required>
+    </label>
+    <br><br>
+
+    <label>
+        Tryb życia:
+        <select id="tryb">
+            <option value="kanapowiec">Kanapowiec (ciężej)</option>
+            <option value="normalny" selected>Normalny</option>
+            <option value="sportowiec">Sportowiec (łatwiej)</option>
+        </select>
+    </label>
+    <br><br>
+
+    <button type="submit">Oblicz BMI</button>
+</form>
+
+<script>
+function obliczBMI() {
+    let wzrostCm = document.getElementById("wzrost").value;
+    let waga = document.getElementById("waga").value;
+    let tryb = document.getElementById("tryb").value;
+
+    let wzrostM = wzrostCm / 100;
+    let bmi = waga / (wzrostM * wzrostM);
+
+    // Modyfikator BMI
+    if (tryb === "kanapowiec") {
+        bmi += 1.5;
+    } else if (tryb === "sportowiec") {
+        bmi -= 1.5;
+    }
+
+    bmi = bmi.toFixed(2);
+
+    let kategoria = "";
+
+    if (bmi < 18.5) {
+        kategoria = "Niedowaga";
+    } else if (bmi < 25) {
+        kategoria = "Waga prawidłowa";
+    } else if (bmi < 30) {
+        kategoria = "Nadwaga";
+    } else {
+        kategoria = "Otyłość";
+    }
+
+    alert(
+        "Twoje BMI: " + bmi + "\n" +
+        "Kategoria: " + kategoria
+    );
+}
+</script>
+
+</body>
+</html>
+
